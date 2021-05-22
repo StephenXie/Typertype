@@ -1,0 +1,7 @@
+{
+    "WORDS_PER_SET": 10,
+    "CORRECTIONS": "Backspace",
+    "TEST_TIMER": 15,
+    "SPACE_STOP": true,
+    "WORD_MODIFICATION": "Extreme"
+}
