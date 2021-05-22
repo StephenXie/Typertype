@@ -12,7 +12,7 @@ def get_long_description():
 
 setup(
     name="typertype",
-    version=get_version("typertype"),
+    version="0.0.1",
     url="https://github.com/StephenXie/Typertype",
     license="GNU_v3",
     author="Stephen Xie",
