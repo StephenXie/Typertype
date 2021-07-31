@@ -21,8 +21,8 @@ def setup():
     global X
     global Y
     global words
-    file_dir = os.path.dirname(__file__)
-    sys.path.append(file_dir)
+    here = os.path.dirname(os.path.abspath(__file__))
+    filename = os.path.join(here, 'list_of_words.txt')
     try:
         with open("settings.json") as settings_file:
             settings = json.load(settings_file)
