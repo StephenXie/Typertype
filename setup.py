@@ -12,7 +12,7 @@ def get_long_description():
 
 setup(
     name="typertype",
-    version="0.0.2",
+    version="0.0.3",
     url="https://github.com/StephenXie/Typertype",
     license="GPLv3",
     author="Stephen Xie",
@@ -21,7 +21,7 @@ setup(
     long_description=get_long_description(),
     long_description_content_type="text/markdown",
     packages=find_packages(),
-    package_data={'typertype': ['typertype/list_of_words.txt']},
+    package_data={'typertype': ['list_of_words.txt']},
     keywords=['type', 'typing', 'offline', 'customizable'],
     classifiers=[
         "Intended Audience :: Developers",
