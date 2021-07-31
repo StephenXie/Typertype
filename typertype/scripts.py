@@ -2,6 +2,8 @@ import curses
 import random
 import time
 import json
+import os
+import sys
 # Credits to Curses python library and https://docs.python.org/3/howto/curses.html for basic command line interface control.
 # Credits to JSON python library and https://docs.python.org/3/library/json.html for reading and writing JSON files.
 Y, X = 5, 5
@@ -19,6 +21,8 @@ def setup():
     global X
     global Y
     global words
+    file_dir = os.path.dirname(__file__)
+    sys.path.append(file_dir)
     try:
         with open("settings.json") as settings_file:
             settings = json.load(settings_file)
