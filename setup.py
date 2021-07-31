@@ -21,7 +21,7 @@ setup(
     long_description=get_long_description(),
     long_description_content_type="text/markdown",
     packages=find_packages(),
-    package_data={'typertype': ['list_of_words.txt']},
+    package_data={'': ['./list_of_words.txt']},
     keywords=['type', 'typing', 'offline', 'customizable'],
     classifiers=[
         "Intended Audience :: Developers",
