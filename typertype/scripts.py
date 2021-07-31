@@ -41,7 +41,7 @@ def setup():
     WORD_MODIFICATION = settings.get("WORD_MODIFICATION", "Normal")
     words = []
     # The text file contains a list of common English words
-    with open("list_of_words.txt", "r") as reader:
+    with open(filename, "r") as reader:
         for line in reader:
             words.append(line.replace("\n", ""))
 
