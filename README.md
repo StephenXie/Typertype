@@ -1,5 +1,5 @@
 # Typertype
-[![PyPI version](https://badge.fury.io/py/typertype.svg)](https://badge.fury.io/py/typertype)
+[![PyPI version](https://badge.fury.io/py/typertype@2x.png)](https://badge.fury.io/py/typertype)
 ***
 Typertype is an offline, customizable, feature-rich, typing app. It allows users to practice typing and test their typing speed offline with a wide array of customizability. It
 analyzes the user's typing data and outputs information such as WPM, CPM, and accuracy. Users can modify settings
