@@ -1,4 +1,5 @@
 # Typertype
+
 [![PyPI version fury.io](https://badge.fury.io/py/typertype.svg)](https://pypi.python.org/pypi/typertype/) [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) [![GitHub issues](https://img.shields.io/github/issues/StephenXie/Typertype)](https://GitHub.com/StephenXie/Typertype/issues/) [![GitHub issues](https://img.shields.io/github/issues-closed/StephenXie/Typertype)](https://github.com/StephenXie/Typertype/issues?q=is%3Aissue+is%3Aclosed)
 ***
 Typertype is an offline, customizable, feature-rich, typing app. It allows users to practice typing and test their typing speed offline with a wide array of customizability. It
@@ -7,20 +8,27 @@ to better fit their preferences and help provide a better typing experience such
 modification, etc.  
 
 ## Installation
-```
+
+```bash
 pip install typertype
 ```
+
 Note that if you are using windows, you will have to install the curses library seperately using the following
-```
+
+```bash
 pip install windows-curses
 ```
 
 ## Usage
+
 Import typertype by using
+
 ```python
 import typertype
 ```
+
 You can start typing by creating a python(.py) script such as
+
 ```python
 import typertype
 
@@ -32,6 +40,7 @@ tt.run()
 That's it! No additional steps are required to run the program.
 
 ## Features
+
 Typertype currently have the following modes: Word, Time, Quotes(coming soon)
 Typertype is able to...
 
