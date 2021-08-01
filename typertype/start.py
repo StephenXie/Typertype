@@ -1,4 +1,4 @@
-from .scripts import main
+from .main import main
 
 class Typertype():
     def __init__(self):

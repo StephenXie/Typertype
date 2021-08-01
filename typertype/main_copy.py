@@ -2,48 +2,31 @@ import curses
 import random
 import time
 import json
-import os
-import sys
 # Credits to Curses python library and https://docs.python.org/3/howto/curses.html for basic command line interface control.
 # Credits to JSON python library and https://docs.python.org/3/library/json.html for reading and writing JSON files.
+try:
+    with open("settings.json") as settings_file:
+        settings = json.load(settings_file)
+except FileNotFoundError:  # no current settings exist(i.e. file is empty)
+    settings = {
+        "WORDS_PER_SET": 20,
+        "CORRECTIONS": "None",
+        "TEST_TIMER": 60,
+        "SPACE_STOP": True,
+        "WORD_MODIFICATION": "Normal"
+    }
+WORDS_PER_SET = settings.get("WORDS_PER_SET", 20)
+CORRECTIONS = settings.get("CORRECTIONS", "None")
+TEST_TIMER = settings.get("TEST_TIMER", 60)
+SPACE_STOP = settings.get("SPACE_STOP", True)
+WORD_MODIFICATION = settings.get("WORD_MODIFICATION", "Normal")
 Y, X = 5, 5
 WIN_X, WIN_Y = 0, 0
-def setup():
-    global settings
-    global WORDS_PER_SET
-    global CORRECTIONS
-    global SPACE_STOP
-    global TEST_TIMER
-    global SPACE_STOP
-    global WORD_MODIFICATION
-    global WIN_X
-    global WIN_Y
-    global X
-    global Y
-    global words
-    here = os.path.dirname(os.path.abspath(__file__))
-    filename = os.path.join(here, 'list_of_words.txt')
-    try:
-        with open("settings.json") as settings_file:
-            settings = json.load(settings_file)
-    except FileNotFoundError:  # no current settings exist(i.e. file is empty)
-        settings = {
-            "WORDS_PER_SET": 20,
-            "CORRECTIONS": "None",
-            "TEST_TIMER": 60,
-            "SPACE_STOP": True,
-            "WORD_MODIFICATION": "Normal"
-        }
-    WORDS_PER_SET = settings.get("WORDS_PER_SET", 20)
-    CORRECTIONS = settings.get("CORRECTIONS", "None")
-    TEST_TIMER = settings.get("TEST_TIMER", 60)
-    SPACE_STOP = settings.get("SPACE_STOP", True)
-    WORD_MODIFICATION = settings.get("WORD_MODIFICATION", "Normal")
-    words = []
-    # The text file contains a list of common English words
-    with open(filename, "r") as reader:
-        for line in reader:
-            words.append(line.replace("\n", ""))
+words = []
+# The text file contains a list of common English words
+with open("list_of_words.txt", "r") as reader:
+    for line in reader:
+        words.append(line.replace("\n", ""))
 
 
 def Settings(stdscr):
@@ -404,7 +387,7 @@ def replace_chr(word):
     return "".join(word)
 
 
-def start(stdscr):
+def main(stdscr):
     global WIN_X
     global WIN_Y
     WIN_Y, WIN_X = stdscr.getmaxyx()
@@ -415,10 +398,7 @@ def start(stdscr):
     curses.curs_set(False)
     home(stdscr)
 
-def main():
-    
-    setup()
-    curses.wrapper(start)
-    with open("settings.json", "w") as settings_file:
-        json.dump(settings, settings_file, indent=4)
 
+curses.wrapper(main)
+with open("settings.json", "w") as settings_file:
+    json.dump(settings, settings_file, indent=4)
