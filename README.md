@@ -42,4 +42,8 @@ Typertype is able to...
   - moving on and skipping the letters typed wrong but allowing backspacing to fix the wrong letters
   - skipping the letters typed wrong but doesn't allow backspacing
 - analyze typing data and give statistics
-- and much more!
+- and much much more!
+
+## Demo
+
+![Demo](https://im7.ezgif.com/tmp/ezgif-7-85811b7a7c06.gif)
