@@ -1,5 +1,5 @@
 # Typertype
-[![PyPI version fury.io](https://badge.fury.io/py/typertype.svg)](https://pypi.python.org/pypi/typertype/)
+[![PyPI version fury.io](https://badge.fury.io/py/typertype.svg)](https://pypi.python.org/pypi/typertype/) [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) [![GitHub issues](https://img.shields.io/github/issues/StephenXie/Typertype)](https://GitHub.com/StephenXie/Typertype/issues/) [![GitHub issues](https://img.shields.io/github/issues-closed/StephenXie/Typertype)](https://github.com/StephenXie/Typertype/issues?q=is%3Aissue+is%3Aclosed) [![GitHub pull-requests](https://img.shields.io/github/issues-pr/StephenXie/Typertype.svg)](https://GitHub.com/StephenXie/Typertype/pulls/) [![GitHub pull-requests](https://img.shields.io/github/issues-pr-closed/StephenXie/Typertype.svg)](https://github.com/StephenXie/Typertype/pulls?q=is%3Apr+is%3Aclosed)
 ***
 Typertype is an offline, customizable, feature-rich, typing app. It allows users to practice typing and test their typing speed offline with a wide array of customizability. It
 analyzes the user's typing data and outputs information such as WPM, CPM, and accuracy. Users can modify settings
