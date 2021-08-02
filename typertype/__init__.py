@@ -1,2 +1,2 @@
-from .start import Typertype
-__version__ = "0.0.8"
+from .main import Typertype
+__version__ = "1.0.0-beta"
