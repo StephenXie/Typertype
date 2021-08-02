@@ -1,7 +1,6 @@
 import curses
 import json
-
-from .src.general import Typer
+from src.general import Typer
 
 
 class Typertype:
