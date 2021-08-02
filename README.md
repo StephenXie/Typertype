@@ -38,7 +38,7 @@ tt = typertype.Typertype()
 tt.run()
 ```
 
-That's it! No additional steps are required to run the program.
+That's it! You can run the script and start typing even without internet, and your settings will be automatically saved each time. No additional steps are required to run the program.
 
 ## Features
 
