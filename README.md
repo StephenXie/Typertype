@@ -55,4 +55,4 @@ Typertype is able to...
 
 ## Demo
 
-![Demo](https://im7.ezgif.com/tmp/ezgif-7-85811b7a7c06.gif)
+![Demo](https://stephenxie.me/images/ezgif.com-gif-maker.gif)
