@@ -1,2 +1,2 @@
 from .main import Typertype
-__version__ = "1.0.0b4"
+__version__ = "1.0.0b5"
