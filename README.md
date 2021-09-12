@@ -56,4 +56,4 @@ Typertype is able to...
 
 ## Demo
 
-![Demo](https://stephenxie.me/images/ezgif.com-gif-maker.gif)
+![Demo](https://stephenxie.github.io/images/ezgif.com-gif-maker.gif)
