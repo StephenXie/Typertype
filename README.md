@@ -3,11 +3,11 @@
 [![PyPI version fury.io](https://badge.fury.io/py/typertype.svg)](https://pypi.python.org/pypi/typertype/) [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) [![GitHub issues](https://img.shields.io/github/issues/StephenXie/Typertype)](https://GitHub.com/StephenXie/Typertype/issues/) [![GitHub issues](https://img.shields.io/github/issues-closed/StephenXie/Typertype)](https://github.com/StephenXie/Typertype/issues?q=is%3Aissue+is%3Aclosed)
 ***
 Typertype is an offline, customizable, feature-rich, typing app. It allows users to practice typing habits and test their typing speed offline with a wide array of customizability.
-
+<!-- 
 ## IMPORTANT
 
 Due to the possibility of some restrictions from collegeboard(AP CSP Create Performance Task), the project's publish date will be delayed to June 2022.
-
+ -->
 ## Installation
 
 ```bash
