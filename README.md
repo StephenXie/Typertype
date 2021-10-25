@@ -28,14 +28,14 @@ Import typertype by using
 import typertype
 ```
 
-You can start typing by creating a python(.py) script such as
+You can start typing by creating a python(.py) script or simply opening up a python shell
 
 ```python
-import typertype
+>> import typertype
 
-tt = typertype.Typertype()
+>> tt = typertype.Typertype()
 
-tt.run()
+>> tt.run()
 ```
 
 That's it! You can run the script and start typing even without internet, and your settings will be automatically saved each time. No additional steps are required to run the program.
