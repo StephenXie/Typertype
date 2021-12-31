@@ -4,6 +4,8 @@ import time
 import json
 # Credits to Curses python library and https://docs.python.org/3/howto/curses.html for basic command line interface control.
 # Credits to JSON python library and https://docs.python.org/3/library/json.html for reading and writing JSON files.
+# Copyright (c) 2021 Pin Xie. All rights reserved. Use of this source code is governed by GNU GPLv3 license that can be found in the LICENSE file.
+
 try:
     with open("settings.json") as settings_file:
         settings = json.load(settings_file)
