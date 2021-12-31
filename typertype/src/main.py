@@ -210,6 +210,8 @@ class Typer_base:
                     self.practice_set(stdscr)
                 elif arrow_y == 2:
                     self.test_set(stdscr)
+                elif arrow_y == 3:
+                    self.quotes_set(stdscr)
                 elif arrow_y == 4:
                     self.Settings(stdscr)
             stdscr.clear()

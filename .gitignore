@@ -1,0 +1,8 @@
+# Project exclude paths
+*.pyc
+**/__pycache__/
+__pycache__/
+.idea/
+.vscode/
+typertype/src/__pycache__
+typertype/__pycache__
