@@ -43,8 +43,8 @@ That's it! You can run the commands and start typing even without internet, and 
 ## Features
 
 Typertype currently have the following modes: Word, Time, and Quotes  
+  
 Typertype is able to...
-
 - save your typing preference by storing them in JSON format locally
 - modify words by randomly swapping, adding, or removing letters in words to help you adapt to different typing scenarios.
 - allow users to correct their words in different ways such as
