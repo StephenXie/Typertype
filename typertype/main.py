@@ -1,7 +1,7 @@
 import curses
 import json
 from .src.general import Typer
-
+# Copyright (c) 2021 Pin Xie. All rights reserved. Use of this source code is governed by GNU GPLv3 license that can be found in the LICENSE file.
 
 class Typertype:
     def __init__(self):
