@@ -8,7 +8,7 @@ def get_quote():
     response = requests.get('https://type.fit/api/quotes')
     response.raise_for_status()
     if response.status_code == 200:
-        return quotes[random.randint(0, 1600)]['text']
+        return response.json()[random.randint(0, 1600)]['text']
     return 'Error'
 
 class Typer_quotes(main.Typer_base):
