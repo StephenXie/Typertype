@@ -42,7 +42,7 @@ That's it! You can run the commands and start typing even without internet, and 
 
 ## Features
 
-Typertype currently have the following modes: Word, Time, Quotes(coming soon)
+Typertype currently have the following modes: Word, Time, Quotes  
 Typertype is able to...
 
 - save your typing preference by storing them in JSON format locally
