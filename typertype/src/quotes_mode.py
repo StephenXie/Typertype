@@ -4,10 +4,12 @@ import curses
 import time
 from . import main
 
-quotes = requests.get('https://type.fit/api/quotes').json()
-
 def get_quote():
-    return quotes[random.randint(0, 1600)]['text']
+    response = requests.get('https://type.fit/api/quotes')
+    response.raise_for_status()
+    if response.status_code == 200:
+        return quotes[random.randint(0, 1600)]['text']
+    return 'Error'
 
 class Typer_quotes(main.Typer_base):
     def quotes_set(self,stdscr):
