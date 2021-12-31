@@ -1,9 +1,9 @@
 import random
 import curses
 import time
-from .main import Typer_base
+from . import main
 
-class Typer_words(Typer_base):
+class Typer_words(main.Typer_base):
     def practice_set(self,stdscr):
         started = False
         l, r = 0, self.WIN_X-self.X-1

@@ -1,7 +1,7 @@
-from .words_mode import Typer_words
-from .time_mode import Typer_time
-from .quotes_mode import Typer_quotes
+from . import words_mode
+from . import time_mode
+from . import quotes_mode
 
 
-class Typer(Typer_words,Typer_time, Typer_quotes):
+class Typer(words_mode.Typer_words,time_mode.Typer_time, quotes_mode.Typer_quotes):
     pass
