@@ -40,9 +40,9 @@ class Typer_words(main.Typer_base):
                 return
             # backspace:
             elif cur_key == 8 or cur_key == curses.KEY_BACKSPACE:
-                if cur_set[i-1][1] == curses.color_pair(2) and self.CORRECTIONS == "Backspace":
+                if self.CORRECTIONS == "Backspace":
                     cur_set[i][1] = curses.color_pair(1)
-                    cur_set[i-1][1] = curses.color_pair(2) | curses.A_BLINK
+                    cur_set[i-1][1] = ( curses.color_pair(2) | curses.A_BLINK if cur_set[i-1][1] == curses.color_pair(2) else curses.color_pair(1) | curses.A_BLINK)
                     i -= 1
                     if i >= self.WIN_X//2:
                         l -= 1
