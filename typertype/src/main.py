@@ -10,19 +10,22 @@ from .read_settings import *
 # Credits to JSON python library and https://docs.python.org/3/library/json.html for reading and writing JSON files.
 # Copyright (c) 2021 Pin Xie. All rights reserved. Use of this source code is governed by GNU GPLv3 license that can be found in the LICENSE file.
 
+
 class Typer_base:
     def __init__(self, stdscr):
         self.WIN_Y, self.WIN_X = stdscr.getmaxyx()
         self.Y, self.X = self.WIN_Y // 2, 5
-        self.set_colors(stdscr)
-        curses.curs_set(False)
         self.settings = get_settings()
         self.WORDS_PER_SET = settings.get("WORDS_PER_SET", 20)
         self.CORRECTIONS = settings.get("CORRECTIONS", "None")
         self.TEST_TIMER = settings.get("TEST_TIMER", 60)
         self.SPACE_STOP = settings.get("SPACE_STOP", True)
         self.WORD_MODIFICATION = settings.get("WORD_MODIFICATION", "Normal")
+        self.THEME = settings.get("THEME", "A")
+        self.theme_map = {"A": {"neutral": curses.COLOR_WHITE, "correct": curses.COLOR_GREEN, "incorrect": curses.COLOR_RED, "background": curses.COLOR_BLACK}, "B": {"neutral": curses.COLOR_WHITE, "correct": curses.COLOR_CYAN,"incorrect": curses.COLOR_MAGENTA, "background": curses.COLOR_BLACK}, "C": {"neutral": curses.COLOR_WHITE, "correct": curses.COLOR_BLUE, "incorrect": curses.COLOR_YELLOW, "background": curses.COLOR_BLACK}}
         self.words = []
+        self.set_colors(stdscr)
+        curses.curs_set(False)
         # The text file contains a list of common English words
         with open(filename, "r") as reader:
             for line in reader:
@@ -34,44 +37,49 @@ class Typer_base:
         arrow_y = 1
         stdscr.refresh()
         while True:
-            self.center_text(stdscr, "Settings", self.WIN_Y//12)
+            self.center_text(stdscr, "Settings", self.WIN_Y//14)
             self.center_text(
-                stdscr, f"Words Per Set: {self.WORDS_PER_SET} words", self.WIN_Y//6)
+                stdscr, f"Words Per Set: {self.WORDS_PER_SET} words", self.WIN_Y//7)
             self.center_text(
-                stdscr, f"Corrections: {self.CORRECTIONS}", 2*self.WIN_Y//6)
+                stdscr, f"Corrections: {self.CORRECTIONS}", 2*self.WIN_Y//7)
             self.center_text(
-                stdscr, f"Test Timer: {self.TEST_TIMER} seconds", 3*self.WIN_Y//6)
+                stdscr, f"Test Timer: {self.TEST_TIMER} seconds", 3*self.WIN_Y//7)
             self.center_text(
-                stdscr, f"Space Stop: {self.SPACE_STOP}", 4*self.WIN_Y//6)
+                stdscr, f"Space Stop: {self.SPACE_STOP}", 4*self.WIN_Y//7)
             self.center_text(
-                stdscr, f"Word Modification: {self.WORD_MODIFICATION}", 5*self.WIN_Y//6)
+                stdscr, f"Word Modification: {self.WORD_MODIFICATION}", 5*self.WIN_Y//7)
+            self.center_text(
+                stdscr, f"Theme: {self.THEME}", 6*self.WIN_Y//7)
             if arrow_y == 1:
                 cur_key, self.WORDS_PER_SET = self.set_option(stdscr, "Words per set", [
-                    5, 10, 15, 20, 25, 30, 35, 40, 45, 50], self.WIN_Y//6, self.WORDS_PER_SET, "words")
+                    5, 10, 15, 20, 25, 30, 35, 40, 45, 50], self.WIN_Y//7, self.WORDS_PER_SET, "words")
             elif arrow_y == 2:
                 cur_key, self.CORRECTIONS = self.set_option(
-                    stdscr, "Corrections", ["None", "Backspace", "Stop"], 2*self.WIN_Y//6, self.CORRECTIONS)
+                    stdscr, "Corrections", ["None", "Backspace", "Stop"], 2*self.WIN_Y//7, self.CORRECTIONS)
             elif arrow_y == 3:
                 cur_key, self.TEST_TIMER = self.set_option(stdscr, "Test timer", [
-                    10, 15, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300], 3*self.WIN_Y//6, self.TEST_TIMER, "seconds")
+                    10, 15, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300], 3*self.WIN_Y//7, self.TEST_TIMER, "seconds")
             elif arrow_y == 4:
                 cur_key, self.SPACE_STOP = self.set_option(
-                    stdscr, "Space stop", [True, False], 4*self.WIN_Y//6, self.SPACE_STOP)
+                    stdscr, "Space stop", [True, False], 4*self.WIN_Y//7, self.SPACE_STOP)
             elif arrow_y == 5:
                 cur_key, self.WORD_MODIFICATION = self.set_option(stdscr, "Word modification", [
-                    "None", "Weak", "Normal", "Strong", "Extreme", "???"], 5*self.WIN_Y//6, self.WORD_MODIFICATION)
+                    "None", "Weak", "Normal", "Strong", "Extreme", "???"], 5*self.WIN_Y//7, self.WORD_MODIFICATION)
+            elif arrow_y == 6:
+                cur_key, self.THEME = self.set_option(stdscr, "Theme", [
+                    "A", "B", "C"], 6*self.WIN_Y//7, self.THEME)
             else:
                 cur_key = stdscr.getch()
             if cur_key == curses.KEY_DOWN or cur_key == ord('s'):
                 arrow_y += 1
-                arrow_y %= 6
+                arrow_y %= 7
                 if arrow_y == 0:
                     arrow_y = 1
             elif cur_key == curses.KEY_UP or cur_key == ord('w'):
                 arrow_y -= 1
-                arrow_y %= 6
+                arrow_y %= 7
                 if arrow_y == 0:
-                    arrow_y = 5
+                    arrow_y = 6
             elif cur_key == 27 or cur_key == curses.KEY_COPY or cur_key == curses.KEY_END or cur_key == curses.KEY_BREAK:
                 return
             stdscr.clear()
@@ -148,10 +156,11 @@ class Typer_base:
 
     def set_colors(self, stdscr):
         if curses.has_colors():
+            cur_themes = self.theme_map[self.THEME]
             curses.use_default_colors()
-            curses.init_pair(1, curses.COLOR_WHITE, curses.COLOR_BLACK)
-            curses.init_pair(2, curses.COLOR_RED, curses.COLOR_BLACK)
-            curses.init_pair(3, curses.COLOR_GREEN, curses.COLOR_BLACK)
+            curses.init_pair(1, cur_themes["neutral"], cur_themes["background"])
+            curses.init_pair(2, cur_themes["incorrect"], cur_themes["background"])
+            curses.init_pair(3, cur_themes["correct"], cur_themes["background"])
 
     def create_set(self):
         pct = 0

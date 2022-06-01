@@ -1,7 +1,8 @@
 {
-    "WORDS_PER_SET": 20,
-    "CORRECTIONS": "None",
+    "WORDS_PER_SET": 25,
+    "CORRECTIONS": "Backspace",
     "TEST_TIMER": 60,
     "SPACE_STOP": true,
-    "WORD_MODIFICATION": "Normal"
+    "WORD_MODIFICATION": "Normal",
+    "THEME": "C"
 }
